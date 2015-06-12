@@ -5,10 +5,12 @@
 #ifndef THERMECH_FEM_STATE_H
 #define THERMECH_FEM_STATE_H
 
+namespace material {
 
-class State {
+    class State {
 
-};
+    };
 
+}
 
 #endif //THERMECH_FEM_STATE_H

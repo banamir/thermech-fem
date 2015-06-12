@@ -9,11 +9,16 @@
 #include "material.h"
 #include "LinkedProperty.h"
 
-class AbstractProperty {
+namespace material {
+
+    class AbstractProperty {
     public:
-        virtual Value getValue(vector<Value> state);
+        virtual Value getValue(vector <Value> state);
+
         virtual LinkedProperty link(State);
-};
+    };
+
+}
 
 
 #endif //THERMECH_FEM_ABSTRACTPROPERTY_H

@@ -8,13 +8,17 @@
 #include<string>
 #include "AbstractProperty.h"
 
-class AbstractMaterial {
+namespace material {
+
+    class AbstractMaterial {
 
     public:
         virtual AbstractProperty getProperty(string name);
-        virtual AbstractMaterial setProperty(string name, AbstractProperty prop);
 
-};
+        virtual AbstractMaterial setProperty(string name, AbstractProperty prop) const;
 
+    };
+
+}
 
 #endif //THERMECH_FEM_ABSTRACTMATERIAL_H

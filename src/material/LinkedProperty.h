@@ -8,13 +8,15 @@
 #include "material.h"
 #include "state.h"
 
+namespace material {
 
-class LinkedProperty: AbstractProperty {
+    class LinkedProperty : AbstractProperty {
 
     public:
-       Value getValue(State);
+        Value getValue(State);
 
-};
+    };
 
+}
 
 #endif //THERMECH_FEM_LINKEDPROPERTY_H

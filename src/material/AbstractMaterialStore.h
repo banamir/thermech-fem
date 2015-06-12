@@ -7,11 +7,18 @@
 
 #include "AbstractMaterial.h"
 
-class AbstractMaterialStore {
-    public:
-        virtual AbstractMaterialStore addMaterial(string name, AbstractMaterial material);
-        virtual AbstractMaterial getMaterial(string name);
-};
+namespace material {
 
+    namespace material {
+
+        class AbstractMaterialStore {
+        public:
+            virtual AbstractMaterialStore addMaterial(string name, AbstractMaterial material);
+
+            virtual AbstractMaterial getMaterial(string name);
+        };
+
+    };
+}
 
 #endif //THERMECH_FEM_ABSTRACTMATERIALSTORE_H
