@@ -61,5 +61,4 @@ namespace material {
 
 }
 
-
 #endif //THERMECH_FEM_ABSTRACTVALUESTORE_H

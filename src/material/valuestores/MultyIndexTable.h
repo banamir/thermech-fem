@@ -8,6 +8,7 @@
 #include "../material-init.h"
 
 #include "AbstractValueStore.h"
+#include "ValueAxis.h"
 
 #include<vector>
 #include<stdexcept>
@@ -20,7 +21,7 @@ namespace material {
 
     private:
 
-        vector <vector<Value>> axis;
+        vector <ValueAxis> axis;
 
         vector<Value> table;
 
@@ -30,13 +31,13 @@ namespace material {
             if (axisSizes.size() < this->dim)
                 throw runtime_error("array size of max values must'be equal to Table dimention");
 
-            this->axis = vetctor<vector<Value>>(dim);
+            this->axis = vetctor<ValueAxis>(dim);
 
             int table_size = 1;
             int axis_size;
             for(int i = 0; i<dim; i++) {
-                axis_size = axisSizes[i]
-                this->axsis[i] = vector<Value>(axis_size);
+                axis_size = axisSizes[i];
+                this->axsis[i] = ValueAxis(axis_size);
                 table_size *= axis_size;
             }
 
@@ -48,19 +49,23 @@ namespace material {
             return table[tableIndex(raw_values)];
         }
 
-        MultiIndexTable setAxis(int index, vector<Value> axis) {
-            vector<Value> &axs = this->axis[getIndex(index)];
+        MultiIndexTable setAxis(int index, ValueAxis axis) {
+            ValueAxis& axs = this->axis[getIndex(index)];
 
             if(axs.size() != axis.size())
                 throw  runtime_error("axis size can't be changed");
 
-            axs = vector<int>(axis);
+            axs = ValueAxis(axis);
 
             return this;
         }
 
-        vector<Value> getAxis(int index) const {
-            return vector<int>(this->axis[getIndex(index)]);
+        ValueAxis getAxis(int index) const {
+            return this->axis[getIndex(index)];
+        }
+
+        ValueAxis& getAxsis(int index) {
+            return this->axis[getIndex(index)];
         }
 
         MultiIndexTable getAxisSize(int index) const {
